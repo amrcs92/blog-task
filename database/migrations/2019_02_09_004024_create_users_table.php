@@ -33,8 +33,8 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
-        Schema::dropForeign('lists_role_id_foreign');
-        Schema::dropIndex('lists_role_id_index');
+        Schema::dropForeign('users_role_id_foreign');
+        Schema::dropIndex('users_role_id_index');
         Schema::dropColumn('role_id');
     }
 }

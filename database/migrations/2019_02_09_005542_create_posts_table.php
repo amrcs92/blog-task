@@ -31,8 +31,8 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
-        Schema::dropForeign('lists_category_id_foreign');
-        Schema::dropIndex('lists_category_id_index');
+        Schema::dropForeign('posts_category_id_foreign');
+        Schema::dropIndex('posts_category_id_index');
         Schema::dropColumn('category_id');
     }
 }
