@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title', 200);
             $table->text('description');
-            $table->index('category_id');
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->refrences('id')->on('categories')->onDelete('cascade');
             $table->timestamps();            
         });        
@@ -32,7 +32,6 @@ class CreatePostsTable extends Migration
     {
         Schema::dropIfExists('posts');
         Schema::dropForeign('posts_category_id_foreign');
-        Schema::dropIndex('posts_category_id_index');
         Schema::dropColumn('category_id');
     }
 }

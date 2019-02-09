@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 100);
             $table->string('email', 100)->unique();
             $table->string('password', 100);
-            $table->index('role_id');
+            $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');                        
             $table->rememberToken();
             $table->timestamps();            
@@ -34,7 +34,6 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropForeign('users_role_id_foreign');
-        Schema::dropIndex('users_role_id_index');
         Schema::dropColumn('role_id');
     }
 }
