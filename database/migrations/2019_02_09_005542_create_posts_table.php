@@ -17,11 +17,9 @@ class CreatePostsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title', 200);
-            $table->text('description');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->text('description');            
             $table->timestamps();            
-        });        
+        });                
     }
 
     /**
@@ -31,8 +29,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
-        Schema::dropForeign('posts_category_id_foreign');
-        Schema::dropColumn('category_id');
+        Schema::dropIfExists('posts');        
     }
 }

@@ -78,16 +78,37 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Post 1</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Post 2</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Post 3</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Post 4</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
