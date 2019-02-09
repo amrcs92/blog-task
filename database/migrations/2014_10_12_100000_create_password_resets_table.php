@@ -14,6 +14,7 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create('password_resets', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->string('email', 50)->index();
             $table->string('token', 200);
             $table->timestamp('created_at')->nullable();
