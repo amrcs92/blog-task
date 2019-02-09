@@ -17,8 +17,10 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title', 200);
             $table->text('description');
+            $table->timestamps();            
+        });
+        Schema::table('posts', function(Blueprint $table){
             $table->unsignedInteger('category_id');
-            $table->timestamps();
             $table->foreign('category_id')->refrences('id')->on('categories');
         });
     }
