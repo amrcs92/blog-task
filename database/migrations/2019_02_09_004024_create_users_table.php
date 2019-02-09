@@ -17,11 +17,14 @@ class CreateUsersTable extends Migration
            $table->increments('id');
             $table->string('username');
             $table->string('email')->unique();
-            $table->string('password');
-            $table->unsignedInteger('role_id');
+            $table->string('password');            
             $table->rememberToken();
-            $table->timestamps();
-            $table->foreign('role_id')->refrences('id')->on('role');
+            $table->timestamps();            
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedInteger('role_id');
+
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
