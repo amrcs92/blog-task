@@ -52,21 +52,19 @@ helper function for getting all categories, and show it in menu bar
 
 ## Installation steps
 
-1) 
+ 
 ```
 npm install
   ```
 
-2) 
 ```
 composer install
 ```
 
-3) make sure .env file exist in the project 
-   copy the .env-example and change:
-   - username, password, databasename
-
-4) 
+make sure .env file exist in the project 
+  copy the .env-example and change:
+  - username, password, databasename
+ 
 ```
 php artisan migrate
 ```
