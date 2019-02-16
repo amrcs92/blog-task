@@ -8,7 +8,7 @@ This simple blog like any blog website, nothing fancy, this blog have 2 differen
 
 -Admin (admin can create/read/update/delete posts & categories) user_role = 2 
 
-## Developed by
+## Technologies
 
 Technologies used in this project laravel 5.5, bootstrap 3.7
 Laravel features used: Eloquent, Query builder, migration, routing , auth,  middleware, helper
