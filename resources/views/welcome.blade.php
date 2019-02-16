@@ -1,116 +1,30 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Post 1</div>
-                        <div class="panel-body">
-                            Panel content
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Post 2</div>
-                        <div class="panel-body">
-                            Panel content
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Post 3</div>
-                        <div class="panel-body">
-                            Panel content
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Post 4</div>
-                        <div class="panel-body">
-                            Panel content
-                        </div>
-                    </div>
-                </div>
-            </div>
+@extends('layouts.app')
+@section('content')
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <h2>Home Page</h2>
         </div>
-    </body>
-</html>
+        <div class="panel-body">
+            <div class="row">
+                @foreach($posts as $post)
+                    <a href="{{ URL('/post/'.$post['id']) }}">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading text-center">
+                                    <h4>{{ $post['title'] }}</h4>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <p>{{ $post['description'] }}</p>
+                                    @if(!empty(Auth::user()) && Auth::user()->role_id == 2)
+                                        <a class="btn btn-block btn-default" href="{{ URL('edit/post/'.$post['id']) }}">Edit</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>                    
+                    </a>
+                @endforeach                
+            </div>
+        </div>    
+    </div>        
+@endsection
+

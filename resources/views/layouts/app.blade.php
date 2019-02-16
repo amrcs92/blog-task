@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -37,6 +39,23 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li><a href="{{ URL('/') }}">Home</a></li>
+                        <li><a href="{{ URL('/posts') }}">Posts</a></li>
+                             
+                        <li class="dropdown">
+                            <button class="btn btn-default categories-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                <a tabindex="-1" href="{{ URL('/categories') }}">
+                                    Categories
+                                </a>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <?php $postCategories = getPostCategories(); ?>
+                                @foreach($postCategories as $postCategory)
+                                    <li><a tabindex="-1" href="{{ URL('/category/'.$postCategory->id) }}">{{ $postCategory->name }}</a></li>
+                                @endforeach
+                            </ul>                            
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -48,7 +67,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -70,11 +89,10 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
-    </div>
-
-    <!-- Scripts -->
+        <div class="col-md-12">
+            @yield('content')
+        </div>    
+    </div> 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
