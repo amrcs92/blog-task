@@ -22,7 +22,7 @@ Route::get('/', function(){
 
 Route::get('posts', 'PostController@viewAllPosts');
 Route::get('add_post', 'PostController@showPostForm')->middleware('auth');
-Route::get('add_category', 'PostController@showPostCategoryForm')->middleware('auth');
+Route::get('add_post_category', 'PostController@showPostCategoryForm')->middleware('auth');
 Route::get('categories', 'PostController@showAllCategories');
 Route::get('category/{id}', 'PostController@getCategoryId');
 Route::get('post/{id}', 'PostController@getPostById');

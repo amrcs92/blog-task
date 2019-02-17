@@ -54,6 +54,10 @@
                                 @endforeach
                             </ul>                            
                         </li>
+                        @if(!empty(Auth::user()) && Auth::user()->role_id == 2)
+                            <li><a href="{{ URL('/add_post') }}">Add Post</a></li>
+                            <li><a href="{{ URL('/add_post_category') }}">Add Category</a></li>
+                        @endif    
                     </ul>
 
                     <!-- Right Side Of Navbar -->
