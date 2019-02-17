@@ -42,12 +42,12 @@
                         <li><a href="{{ URL('/') }}">Home</a></li>
                         <li><a href="{{ URL('/posts') }}">Posts</a></li>
                              
-                        <li class="dropdown">
-                            <a tabindex="-1" href="{{ URL('/categories') }}" class="btn-default categories-btn dropdown-toggle" data-toggle="dropdown">
+                        <li class="dropdown categoriesDropdown">
+                            <a tabindex="-1" href="{{ URL('/categories') }}" class="categories-btn">
                                 Categories
                                 <span class="caret"></span>
                             </a>                            
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu categoriesDropdown-menu">
                                 <?php $postCategories = getPostCategories(); ?>
                                 @foreach($postCategories as $postCategory)
                                     <li><a tabindex="-1" href="{{ URL('/category/'.$postCategory->id) }}">{{ $postCategory->name }}</a></li>
