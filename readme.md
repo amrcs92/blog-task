@@ -1,58 +1,77 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<h2 align="center">Simple CRUD blog</h2>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## About this web application
 
-## About Laravel
+This simple blog like any blog website, nothing fancy, this blog have 2 different user role:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+-User (user can read all posts and select post's category that is created by admin) user_role = 1
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-Admin (admin can create/read/update/delete posts & categories) user_role = 2 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+## Technologies
 
-## Learning Laravel
+Technologies used in this project laravel 5.5, bootstrap 3.7
+Laravel features used: Eloquent, Query builder, migration, routing , auth,  middleware, helper
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+## Database tables
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Database: blogtask
 
-## Laravel Sponsors
+Tables:
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+- users (id, username, email, password, remember_token, created_at, updated_at, role_id)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+- roles (id, name)
 
-## Contributing
+- posts (id, title, description, created_at, updated_at, category_id)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- categories (id, name, created_at, updated_at)
 
-## Security Vulnerabilities
+## Relationships used
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- hasmany()
 
-## License
+- hasOne()
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Helper
+
+helpers.php
+
+helper function for getting all categories, and show it in menu bar
+
+## Routes used
+
+- GET
+
+- POST
+
+- PATCH
+
+- DELETE 
+
+## Installation steps
+
+ 
+```
+npm install
+  ```
+
+```
+composer install
+```
+
+make sure .env file exist in the project 
+  copy the .env-example and change:
+  - username, password, databasename
+ 
+```
+php artisan migrate
+```
+
+## Extra Installation
+
+make sure to create user & admin by registeration to use the laravel authentication system
+hint: for admin you need to edit user_role column value in users table from "1" to "2"
+
+Enjoy!! :)
