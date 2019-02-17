@@ -43,12 +43,10 @@
                         <li><a href="{{ URL('/posts') }}">Posts</a></li>
                              
                         <li class="dropdown">
-                            <button class="btn btn-default categories-btn dropdown-toggle" type="button" data-toggle="dropdown">
-                                <a tabindex="-1" href="{{ URL('/categories') }}">
-                                    Categories
-                                </a>
+                            <a tabindex="-1" href="{{ URL('/categories') }}" class="btn-default categories-btn dropdown-toggle" data-toggle="dropdown">
+                                Categories
                                 <span class="caret"></span>
-                            </button>
+                            </a>                            
                             <ul class="dropdown-menu">
                                 <?php $postCategories = getPostCategories(); ?>
                                 @foreach($postCategories as $postCategory)

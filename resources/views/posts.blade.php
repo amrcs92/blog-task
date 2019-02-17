@@ -12,10 +12,10 @@
                             <div class="col-md-3">
                                 <div class="panel panel-default">
                                     <div class="panel-heading text-center">
-                                        <h4>{{ $post['title'] }}</h4>
+                                        <h4>{{ str_limit($post['title'], $limit = 30, $end = '...') }}</h4>
                                     </div>
                                     <div class="panel-body text-center">
-                                        <p>{{ $post['description'] }}</p>
+                                        <p>{{ str_limit($post['description'], $limit = 100, $end = '...') }}</p>
                                         @if(!empty(Auth::user()) && Auth::user()->role_id == 2)
                                             <a class="btn btn-default btn-block" href="{{ URL('edit/post/'.$post['id']) }}">Edit</a>
                                         @endif    
